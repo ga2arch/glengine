@@ -1,0 +1,13 @@
+cmake_minimum_required(VERSION 3.3 FATAL_ERROR)
+project(glmath VERSION 0.1 LANGUAGES CXX)
+
+include_directories(include)
+
+add_library(glmath INTERFACE)
+target_include_directories(glmath INTERFACE include)
+
+set(glmath_headers
+    include/glmath.h
+)
+
+add_custom_target(glmath_ide SOURCES ${glmath_headers})
