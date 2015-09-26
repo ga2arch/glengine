@@ -1,8 +1,6 @@
 cmake_minimum_required(VERSION 3.3 FATAL_ERROR)
 project(glmath VERSION 0.1 LANGUAGES CXX)
 
-include_directories(include)
-
 add_library(glmath INTERFACE)
 target_include_directories(glmath INTERFACE include)
 
@@ -11,3 +9,9 @@ set(glmath_headers
 )
 
 add_custom_target(glmath_ide SOURCES ${glmath_headers})
+
+add_executable(test1 tests/sum.cpp)
+target_include_directories(test1 PRIVATE ${CATCH_INCLUDE_DIR})
+
+enable_testing()
+add_test(test1 test1)

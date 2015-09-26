@@ -3,8 +3,11 @@ project(engine VERSION 0.1 LANGUAGES CXX)
 
 SET(CMAKE_OSX_DEPLOYMENT_TARGET 10.10)
 
-include_directories(glmath/include)
+add_subdirectory(catch)
 add_subdirectory(glmath)
 
 add_executable(main main.cpp)
+target_include_directories(main PRIVATE glmath/include)
 target_link_libraries(main glmath)
+
+enable_testing()
