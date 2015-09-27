@@ -1,13 +1,19 @@
 cmake_minimum_required(VERSION 3.3 FATAL_ERROR)
 project(engine VERSION 0.1 LANGUAGES CXX)
+include(CTest)
 
-SET(CMAKE_OSX_DEPLOYMENT_TARGET 10.10)
+set(CMAKE_BUILD_TYPE Debug)
+set(CMAKE_OSX_DEPLOYMENT_TARGET 10.10)
+set(CTEST_MEMORYCHECK_COMMAND_OPTIONS "--trace-children=yes --leak-check=full")
 
 add_subdirectory(catch)
 add_subdirectory(glmath)
 
 add_executable(main main.cpp)
-target_include_directories(main PRIVATE glmath/include)
-target_link_libraries(main glmath)
+set_target_properties(main
+    PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
+)
 
-enable_testing()
+target_include_directories(main PRIVATE ${GLMATH_INCLUDE_DIR})
+target_link_libraries(main glmath)

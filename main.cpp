@@ -2,6 +2,6 @@
 #include "glmath.h"
 
 int main() {
-    std::cout << sum(1,2) << std::endl;
+    std::cout << sum(1,2)+3 << std::endl;
     return 0;
 }
