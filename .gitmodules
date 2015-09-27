@@ -1,0 +1,3 @@
+[submodule "glmath"]
+	path = glmath
+	url = git@github.com:ga2arch/glmath.git
