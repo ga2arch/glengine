@@ -17,3 +17,5 @@ set_target_properties(main
 
 target_include_directories(main PRIVATE ${GLMATH_INCLUDE_DIR})
 target_link_libraries(main glmath)
+set_property(TARGET main PROPERTY CXX_STANDARD 14)
+set_property(TARGET main PROPERTY CXX_STANDARD_REQUIRED ON)
